@@ -27,7 +27,7 @@ const AutoTopUpComponent = () => {
         Smartify Assignment By Prashant-Malviya
       </div>
 
-      <div className="relative top-12 h-auto lg:w-2/3 md:w-2/3 w-full mx-auto my-auto bg-white rounded-3xl p-6 lg:p-10 space-y-2">
+      <div className="relative top-12 h-auto lg:w-2/3 md:w-2/3 w-full mx-auto my-auto bg-white rounded-3xl p-10 space-y-2">
         <div className="flex flex-col">
           <div className="flex flex-row">
             <Typography variant="h6" className="font-bold" gutterBottom>
