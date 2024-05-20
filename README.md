@@ -30,3 +30,13 @@ These instructions will help you set up and run the project on your local machin
    ```bash
    git clone https://github.com/your-username/auto-top-up-component.git
    cd auto-top-up-component
+
+2. **Install Node Module:**
+
+   ```bash
+   npm i
+
+3. **Run The React App**
+
+   ```bash
+   npm run dev
