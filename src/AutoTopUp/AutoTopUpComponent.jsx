@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Slider, Switch, Button, Typography } from "@mui/material";
 import profileUrl from "../url/profileUrl";
+import toast from "react-hot-toast";
 
 const AutoTopUpComponent = () => {
   // State management
@@ -9,6 +10,7 @@ const AutoTopUpComponent = () => {
 
   // Function to handle confirm button click
   const handleConfirm = () => {
+    toast.success('Purchased Successfully')
     console.log(`Selected credits: ${creditValue}`);
   };
 
