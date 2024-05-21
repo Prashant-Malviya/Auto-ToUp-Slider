@@ -1,17 +1,23 @@
 import React, { useState } from "react";
-import { Slider, Switch, Button, Typography } from "@mui/material";
+import { Slider, Switch, Button, Typography, Modal, Box } from "@mui/material";
 import profileUrl from "../url/profileUrl";
 import toast from "react-hot-toast";
+// import CreditModal from "../Utils/CreditModal";
 
 const AutoTopUpComponent = () => {
   // State management
   const [autoTopUp, setAutoTopUp] = useState(true);
   const [creditValue, setCreditValue] = useState(1200);
+  const [creditStatus, setCreditStatus] = useState(false);
 
   // Function to handle confirm button click
   const handleConfirm = () => {
-    toast.success('Purchased Successfully')
+    toast.success("Purchased Successfully");
     console.log(`Selected credits: ${creditValue}`);
+    setCreditStatus(true);
+    if(creditStatus){
+      setOpen(true);
+    }
   };
 
   // Function to handle slider change
@@ -22,6 +28,22 @@ const AutoTopUpComponent = () => {
   // Generate array of values for displaying below the slider
   const sliderValues = Array.from(Array(10), (_, i) => (i + 1) * 500);
   const prices = Array.from(Array(10), (_, i) => (i + 1) * 5);
+
+  const style = {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    width: 400,
+    bgcolor: "background.paper",
+    border: "2px solid #000",
+    boxShadow: 24,
+    p: 4,
+  };
+
+  const [open, setOpen] = useState(false);
+  // const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   return (
     <>
@@ -147,6 +169,24 @@ const AutoTopUpComponent = () => {
           </>
         )}
       </div>
+
+      {creditStatus && (
+        <Modal
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <Box sx={style}>
+            <Typography id="modal-modal-title" style={{font:'bold', color:'blue'}} variant="h6" component="h2">
+              Purchased Credits Are...
+            </Typography>
+            <Typography id="modal-modal-description" style={{font:'bold', color:'purple'}} sx={{ mt: 2 }}>
+              {creditValue}
+            </Typography>
+          </Box>
+        </Modal>
+      )}
     </>
   );
 };
